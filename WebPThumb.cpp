@@ -1,13 +1,12 @@
-#include "WebPThumb.h"
-
 #include <QFile>
 #include <QImage>
 #include <webp/decode.h>
-#include "webp/demux.h"
+
+#include "WebPThumb.h"
 
 extern "C"
 {
-    Q_DECL_EXPORT ThumbCreator* new_creator()
+    Q_DECL_EXPORT ThumbCreator *new_creator()
     {
         return new WebPThumb();
     }
@@ -33,7 +32,7 @@ bool WebPThumb::create(const QString &path, int width, int height, QImage &img)
 
 #if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
     if (!WebPDecodeBGRAInto(reinterpret_cast<const uint8_t*>(data.constData()), data.size(),
-                            output,output_size, result.bytesPerLine()))
+                            output, output_size, result.bytesPerLine()))
 #else
     if (!WebPDecodeARGBInto(reinterpret_cast<const uint8_t*>(data.constData()), data.size(),
                             output, output_size, result.bytesPerLine()))

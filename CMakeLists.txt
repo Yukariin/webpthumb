@@ -12,17 +12,13 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 include(FeatureSummary)
 
-find_package(KF5 REQUIRED COMPONENTS
-        KIO)
+find_package(KF5KIO)
 
 find_library(FOUND_WEBP webp REQUIRED)
 
 set(webpthumb_SRCS WebPThumb.cpp)
 add_library(webpthumb MODULE ${webpthumb_SRCS})
-target_link_libraries(webpthumb
-        KF5::KIOCore
-        KF5::KIOWidgets
-        webp)
+target_link_libraries(webpthumb PRIVATE KF5::KIOWidgets webp)
 
 install(TARGETS webpthumb DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES webpthumb.desktop DESTINATION ${SERVICES_INSTALL_DIR})

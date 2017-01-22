@@ -1,5 +1,5 @@
-#ifndef WEBPTHUMB_WEBPTHUMB_H
-#define WEBPTHUMB_WEBPTHUMB_H
+#ifndef _WEBPTHUMB_H_
+#define _WEBPTHUMB_H_
 
 #include <kio/thumbcreator.h>
 
@@ -9,5 +9,4 @@ public:
     virtual bool create(const QString &path, int width, int height, QImage &img);
 };
 
-
-#endif //WEBPTHUMB_WEBPTHUMB_H
+#endif //_WEBPTHUMB_H_
