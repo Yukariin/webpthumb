@@ -6,7 +6,7 @@
 class WebPThumb : public ThumbCreator
 {
 public:
-    virtual bool create(const QString &path, int width, int height, QImage &img);
+    bool create(const QString &path, int width, int height, QImage &img) override;
 };
 
 #endif //_WEBPTHUMB_H_

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(webpthumb)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_STANDARD 11)
 
 # ECM setup
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
@@ -12,11 +12,12 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 include(FeatureSummary)
 
-find_package(KF5KIO)
+find_package(KF5KIO REQUIRED)
 
 find_library(FOUND_WEBP webp REQUIRED)
 
 set(webpthumb_SRCS WebPThumb.cpp)
+
 add_library(webpthumb MODULE ${webpthumb_SRCS})
 target_link_libraries(webpthumb PRIVATE KF5::KIOWidgets webp)
 

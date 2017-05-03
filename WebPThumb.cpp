@@ -1,5 +1,6 @@
 #include <QFile>
 #include <QImage>
+
 #include <webp/decode.h>
 
 #include "WebPThumb.h"
